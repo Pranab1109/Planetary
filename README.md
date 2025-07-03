@@ -6,18 +6,18 @@ Your AI powered roadmap generator.
 Here are some screenshots showcasing the application's key features and user flow:
 
 <div style="display: flex; justify-content: space-around; align-items: flex-start;">
-  <img src="screenshots/LoginPage.png" alt="User Login Page" style="width: 48%; margin: 1%;">
-  <img src="screenshots/SigninPage.png" alt="User Sign Up Page" style="width: 48%; margin: 1%;">
+  <img src="Screenshots/LoginPage.png" alt="User Login Page" style="width: 48%; margin: 1%;">
+  <img src="Screenshots/SigninPage.png" alt="User Sign Up Page" style="width: 48%; margin: 1%;">
 </div>
 
 <div style="display: flex; justify-content: space-around; align-items: flex-start;">
-  <img src="screenshots/Homepage.png" alt="User Dashboard View with Roadmaps" style="width: 48%; margin: 1%;">
-  <img src="screenshots/LoadingPage.png" alt="Roadmap Generation Loading State" style="width: 48%; margin: 1%;">
+  <img src="Screenshots/Homepage.png" alt="User Dashboard View with Roadmaps" style="width: 48%; margin: 1%;">
+  <img src="Screenshots/LoadingPage.png" alt="Roadmap Generation Loading State" style="width: 48%; margin: 1%;">
 </div>
 
 <div style="display: flex; justify-content: space-around; align-items: flex-start;">
-  <img src="screenshots/RoadmapPage.png" alt="Detailed Roadmap View" style="width: 48%; margin: 1%;">
-  <img src="screenshots/AddingTask.png" alt="Add sub tasks" style="width: 48%; margin: 1%;">
+  <img src="Screenshots/RoadmapPage.png" alt="Detailed Roadmap View" style="width: 48%; margin: 1%;">
+  <img src="Screenshots/AddingTask.png" alt="Add sub tasks" style="width: 48%; margin: 1%;">
  
 </div>
 
