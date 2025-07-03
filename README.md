@@ -32,8 +32,6 @@ Here are some screenshots showcasing the application's key features and user flo
 
 ## Getting Started
 
-*(Add your detailed setup instructions here. Example sections below)*
-
 ### Prerequisites
 
 * Node.js (v18 or higher)
