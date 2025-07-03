@@ -1,0 +1,21 @@
+# Use a Python base image suitable for your needs
+FROM python:3.10-slim-buster
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Copy the requirements file and install Python dependencies
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the application code
+COPY agent.py .
+
+# Expose the port that FastAPI will run on
+EXPOSE 8003
+
+# Command to run the FastAPI application using Uvicorn
+# --host 0.0.0.0 makes it accessible from outside the container
+# --port 8000 (matches EXPOSE)
+# Note: For production, remove --reload and consider using multiple --workers
+CMD ["uvicorn", "agent:app", "--host", "0.0.0.0", "--port", "8003"]

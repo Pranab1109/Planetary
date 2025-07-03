@@ -1,0 +1,22 @@
+# Use the official Node.js image as the base for your backend
+FROM node:20-alpine
+
+# Set the working directory inside the container
+WORKDIR /app/backend
+
+# Copy package.json and package-lock.json (or yarn.lock)
+COPY package*.json ./
+
+# Install project dependencies
+RUN npm install
+
+# Copy the rest of your application code to the container
+# Ensure your server.js is located at ./src/server.js relative to WORKDIR
+COPY . .
+
+# Expose the port your Express.js backend listens on (default is 5000)
+EXPOSE 5000
+
+# --- IMPORTANT CHANGE HERE: Command to run your application ---
+# Directly execute your server.js file using node
+CMD ["node", "./src/server.js"]

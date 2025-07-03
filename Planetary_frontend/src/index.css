@@ -1,0 +1,134 @@
+@import "tailwindcss";
+
+* {
+  font-family: 'Chillax', sans-serif;
+}
+
+/* Safe base reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+@theme {
+  --color-dark-bg-tertiary: #1A1B26 --color-dark-bg-primary: #1A1B26;
+  --color-dark-bg-secondary: #222430;
+  --color-dark-bg-tertiary: #2D303F;
+  --color-dark-text-primary: #E0E0E0;
+  --color-dark-text-secondary: #A0A2B0;
+  --color-dark-border: #4A4F5F;
+  --color-dark-divider: #3A3F50;
+  --color-accent-purple: #8E67F9;
+  --color-accent-blue: #4A90E2;
+  --color-accent-green: #5BE581;
+  --color-accent-orange: #F7931A;
+
+  --color-light-bg-primary: #FFFFFF;
+  --color-light-bg-secondary: #F0F2F5;
+  --color-light-bg-tertiary: #E8EBED;
+  --color-light-text-primary: #1A1B26;
+  --color-light-text-secondary: #6B7280;
+  --color-light-border: #D1D5DB;
+  --color-light-divider: #E5E7EB;
+
+  /* Accent colors (can be same for both themes or adjusted) */
+  --color-accent-purple: #8E67F9;
+  --color-accent-blue: #4A90E2;
+  --color-accent-green: #5BE581;
+  --color-accent-orange: #F7931A;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+}
+
+/* Optional: Scrollbar styling for dark theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #ffffff;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #535665;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #60657B;
+}
+
+.main {
+  background-color: hsla(0, 0%, 100%, 1);
+  background-image:
+    radial-gradient(at 51% 29%, hsla(213, 40%, 88%, 1) 0px, transparent 50%),
+    radial-gradient(at 94% 9%, hsla(300, 54%, 82%, 1) 0px, transparent 50%),
+    radial-gradient(at 24% 63%, hsla(340, 78%, 85%, 1) 0px, transparent 50%),
+    radial-gradient(at 75% 40%, hsla(48, 88%, 71%, 1) 0px, transparent 50%),
+    radial-gradient(at 82% 80%, hsla(73, 41%, 90%, 1) 0px, transparent 50%),
+    radial-gradient(at 34% 0%, hsla(26, 0%, 100%, 1) 0px, transparent 50%),
+    radial-gradient(at 0% 0%, hsla(341, 52%, 88%, 1) 0px, transparent 50%);
+}
+
+.detail-page {
+  background-color: hsla(0, 0%, 100%, 1);
+  background-image:
+    radial-gradient(at 51% 29%, hsla(213, 40%, 88%, 1) 0px, transparent 50%),
+    radial-gradient(at 94% 9%, hsla(300, 54%, 82%, 1) 0px, transparent 50%),
+    radial-gradient(at 24% 63%, hsla(340, 78%, 85%, 1) 0px, transparent 50%),
+    radial-gradient(at 75% 40%, hsla(48, 88%, 71%, 1) 0px, transparent 50%),
+    radial-gradient(at 82% 80%, hsla(73, 41%, 90%, 1) 0px, transparent 50%),
+    radial-gradient(at 34% 0%, hsla(26, 0%, 100%, 1) 0px, transparent 50%),
+    radial-gradient(at 0% 0%, hsla(341, 52%, 88%, 1) 0px, transparent 50%);
+}
+
+/* Custom CSS for Animated Strikethrough */
+.animated-strikethrough {
+  position: relative;
+  /* Needed for positioning the pseudo-element */
+  display: inline-block;
+  /* Allows the pseudo-element to size correctly relative to text */
+  overflow: hidden;
+  /* Important to hide the line before it expands */
+}
+
+.animated-strikethrough::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  /* Center vertically */
+  left: 0;
+  width: 0;
+  /* Start with no width */
+  height: 2px;
+  /* Thickness of the strikethrough line */
+  background-color: currentColor;
+  /* Inherit the text color (e.g., gray-500) */
+  transform: translateY(-50%);
+  /* Adjust for perfect vertical centering */
+  transition: width 0.3s ease-out;
+  /* Animate the width over 0.3 seconds */
+}
+
+/* When the element has the 'completed-animated' class, expand the strikethrough */
+.animated-strikethrough.completed-animated::after {
+  width: 100%;
+  /* Expand to full width */
+}
+
+.task-card-hidden-initial {
+  opacity: 0;
+  /* Added !important for stronger override */
+  transform: translateY(50px);
+  /* Added !important for stronger override */
+}

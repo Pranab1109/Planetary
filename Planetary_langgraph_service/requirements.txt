@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+langchain-ollama
+langchain-core
+langgraph
+langchain-community
+typing-extensions # Explicitly add if TypedDict is used in Python < 3.9
+pydantic
+duckduckgo-search

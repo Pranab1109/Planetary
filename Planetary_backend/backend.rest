@@ -1,0 +1,107 @@
+# backend-tests.rest
+@baseUrl = http://localhost:5000
+# @baseUrl = http://localhost:5000
+
+### User Signup
+# @name signup
+POST {{baseUrl}}/auth/signup
+Content-Type: application/json
+
+{
+    "name": "Pranab",
+    "email": "pranabtest2@test.com",
+    "password": "StrongPassword123"
+}
+
+### User Login
+# @name login
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+    "email": "pranabtest2@test.com",
+    "password": "StrongPassword123"
+}
+
+### Generate & Save Roadmap (requires Authentication)
+# @name generateRoadmap
+POST {{baseUrl}}/api/roadmap
+Content-Type: application/json
+Authorization: Bearer {{login.response.body.token}}
+
+{
+    "query": "I want to crack google interview, create a DSA roadmap for me."
+}
+
+### Get All Roadmaps for Authenticated User
+# @name getAllRoadmaps
+GET {{baseUrl}}/api/roadmaps
+Authorization: Bearer {{login.response.body.token}}
+
+### Get a Specific Roadmap by ID
+# @name getSpecificRoadmap
+GET {{baseUrl}}/api/roadmaps/{{getAllRoadmaps.response.body.data.plans[0]._id}}
+Authorization: Bearer {{login.response.body.token}}
+
+### Update a Specific Roadmap by ID
+# @name updateRoadmap
+PUT {{baseUrl}}/api/roadmaps/{{getAllRoadmaps.response.body.data.plans[0]._id}}
+Content-Type: application/json
+Authorization: Bearer {{login.response.body.token}}
+
+{
+    "title": "My AWESOME Paris Trip - Updated!",
+    "description": "An even more detailed plan for visiting Paris, France, with personal notes.",
+    "tasks_list": [
+        {
+            "title": "Day 1: Arrival & Eiffel Tower",
+            "task_description": "Arrive, check-in, and visit the iconic Eiffel Tower.",
+            "sub_tasks": [
+                {
+                    "action_title": "Arrive at Paris",
+                    "action_description": "Land at Charles de Gaulle Airport.",
+                    "completed": true
+                },
+                {
+                    "action_title": "Check-in to Hotel",
+                    "action_description": "Settle into accommodation near the city center.",
+                    "completed": true
+                },
+                {
+                    "action_title": "Visit Eiffel Tower",
+                    "action_description": "Evening visit to Eiffel Tower for stunning views.",
+                    "completed": false
+                },
+                {
+                    "action_title": "Adding a subtask!",
+                    "action_description": "Evening visit to Eiffel Tower for stunning views.",
+                    "completed": false
+                }
+            ],
+            "completed": false
+        },
+        {
+            "title": "Day 2: Louvre & Seine River",
+            "task_description": "Explore the Louvre Museum and take a scenic Seine River cruise.",
+            "sub_tasks": [
+                {
+                    "action_title": "Louvre Museum",
+                    "action_description": "Spend the morning at the Louvre, focusing on key exhibits.",
+                    "completed": false
+                },
+                {
+                    "action_title": "Seine River Cruise",
+                    "action_description": "Enjoy a relaxing evening cruise along the Seine.",
+                    "completed": false
+                }
+            ],
+            "completed": false
+        }
+    ],
+    "originalPrompt": "Create a detailed 7-day itinerary for a trip to Paris, France. (Modified)"
+}
+
+### Delete a Specific Roadmap by ID
+# @name deleteRoadmap
+DELETE {{baseUrl}}/api/roadmaps/{{getAllRoadmaps.response.body.data.plans[0]._id}}
+Authorization: Bearer {{login.response.body.token}}

@@ -1,0 +1,78 @@
+{
+    "final_answer": {
+        "title": "Cracking Google Interview",
+        "description": "A step-by-step guide to help you prepare for and crack the Google interview.",
+        "task_list": [
+            {
+                "task_title": "Understand Google's Eligibility Criteria",
+                "task_description": "Make sure you meet the basic requirements for a Google interview, such as having a bachelor's degree or equivalent practical experience.",
+                "sub_tasks": [
+                    {
+                        "action_title": "Check your educational background",
+                        "action_description": "Verify that you have a bachelor's degree or equivalent practical experience."
+                    },
+                    {
+                        "action_title": "Research Google's requirements for your role",
+                        "action_description": "Look into the specific requirements for the role you're applying for and make sure you meet them."
+                    }
+                ]
+            },
+            {
+                "task_title": "Prepare for Online Assessment",
+                "task_description": "Practice solving coding questions on data structures and algorithms at a medium to hard level.",
+                "sub_tasks": [
+                    {
+                        "action_title": "Review data structures and algorithms concepts",
+                        "action_description": "Brush up on your knowledge of data structures and algorithms, including topics like arrays, linked lists, stacks, queues, trees, graphs, and sorting algorithms."
+                    },
+                    {
+                        "action_title": "Practice solving coding questions",
+                        "action_description": "Use online platforms like LeetCode, HackerRank, or CodeForces to practice solving coding questions at a medium to hard level."
+                    }
+                ]
+            },
+            {
+                "task_title": "Prepare for Technical Phone Screen",
+                "task_description": "Practice answering technical phone interview questions and prepare your responses.",
+                "sub_tasks": [
+                    {
+                        "action_title": "Review common technical interview questions",
+                        "action_description": "Look into common technical interview questions and practice answering them."
+                    },
+                    {
+                        "action_title": "Prepare your responses to behavioral questions",
+                        "action_description": "Practice answering behavioral questions, such as those related to teamwork, communication, or problem-solving."
+                    }
+                ]
+            },
+            {
+                "task_title": "Optimize Your Resume for Google",
+                "task_description": "Make sure your resume is tailored to the role you're applying for and highlights your relevant skills and experience.",
+                "sub_tasks": [
+                    {
+                        "action_title": "Tailor your resume to the role",
+                        "action_description": "Customize your resume to match the requirements of the role you're applying for."
+                    },
+                    {
+                        "action_title": "Highlight your relevant skills and experience",
+                        "action_description": "Emphasize your relevant skills and experience in your resume, especially those related to the role you're applying for."
+                    }
+                ]
+            },
+            {
+                "task_title": "Apply and Create a Connection",
+                "task_description": "Submit your application and create a connection with Google employees or alumni.",
+                "sub_tasks": [
+                    {
+                        "action_title": "Submit your application",
+                        "action_description": "Make sure to submit your application on time and follow the instructions carefully."
+                    },
+                    {
+                        "action_title": "Create a connection with Google employees or alumni",
+                        "action_description": "Reach out to current or former Google employees through LinkedIn or other professional networks to learn more about their experiences and gain insights into the interview process."
+                    }
+                ]
+            }
+        ]
+    }
+}

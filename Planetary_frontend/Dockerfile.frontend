@@ -1,0 +1,36 @@
+FROM node:18-alpine AS builder
+
+WORKDIR /app
+
+COPY package*.json ./
+
+# Install dependencies, including devDependencies for build
+RUN npm install
+
+COPY . .
+
+# Build the Vite app for production. Vite outputs to a 'dist' folder by default.
+# The VITE_API_BASE_URL environment variable is crucial for the frontend
+# to know where to find the backend API when running inside Docker.
+# This ARGs and ENV ensures it's baked into the build.
+ARG VITE_API_BASE_URL_DOCKER=http://localhost:5000
+ENV VITE_API_BASE_URL=$VITE_API_BASE_URL_DOCKER
+
+RUN npm run build
+
+# Stage 2: Serve the application with Nginx
+FROM nginx:alpine
+
+# Copy the built Vite app from the builder stage to Nginx's public directory
+# Change '/app/build' to '/app/dist' for Vite.
+COPY --from=builder /app/dist /usr/share/nginx/html
+
+# Copy a custom Nginx configuration for single-page apps.
+# Make sure you have nginx.conf in your Planetary_frontend directory.
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+# Expose the port Nginx is listening on.
+EXPOSE 80
+
+# Command to run Nginx (default for nginx:alpine).
+CMD ["nginx", "-g", "daemon off;"]

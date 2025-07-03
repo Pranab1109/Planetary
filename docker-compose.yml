@@ -1,0 +1,58 @@
+# docker-compose.yml (in your project's root directory)
+version: '3.8'
+
+services:
+  # MongoDB service
+  mongodb:
+    image: mongo:6
+    container_name: planetary_mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    environment:
+      MONGO_INITDB_DATABASE: planetary_roadmap
+    networks:
+      - planetary_network
+
+  # Backend Service 
+  backend:
+    build:
+      context: ./Planetary_backend
+      dockerfile: Dockerfile.backend # <--- UPDATED THIS LINE
+    container_name: planetary_backend
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mongodb
+    environment:
+      MONGO_URI: mongodb://mongodb:27017/planetary_roadmap
+      LANGGRAPH_SERVICE_INTERNAL_URL: http://langgraph_service:8003
+    env_file:
+      - ./Planetary_backend/.env
+    networks:
+      - planetary_network
+    restart: always
+
+  # Langgraph Service
+  langgraph_service:
+    build:
+      context: ./Planetary_langgraph_service
+      dockerfile: Dockerfile.langgraph
+    container_name: planetary_langgraph
+    ports:
+      - "8003:8003"
+    environment:
+      # --- ADD THIS ENVIRONMENT VARIABLE ---
+      OLLAMA_HOST: http://host.docker.internal:11434
+    networks:
+      - planetary_network
+    restart: always
+
+volumes:
+  mongodb_data:
+
+
+networks:
+  planetary_network:
+    driver: bridge
